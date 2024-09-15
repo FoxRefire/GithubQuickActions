@@ -1,0 +1,3 @@
+.Button[href="/issues"][data-analytics-event], .Button[href="/pulls"][data-analytics-event]{
+    display:none;
+}

@@ -1,0 +1,28 @@
+{
+    "name": "GithubQuickActions",
+    "description": "Customize Github Quick Actions",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "128": "icon.png"
+    },
+    "action": {
+       "default_title": "GithubQuickActions"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+          "js": ["content.js"],
+          "css": ["content.css"],
+          "matches": ["*://github.com/*"]
+        }
+    ],
+    "web_accessible_resources": [{
+        "resources": ["actions.json"],
+        "matches": ["*://github.com/*"]
+    }],
+    "permissions": ["storage"]
+}
