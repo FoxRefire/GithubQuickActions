@@ -1,3 +1,4 @@
+let currentURL = location.href
 function waitTargetElement(){
     return new Promise(resolve => {
         let interval  = setInterval(() => {
@@ -21,6 +22,14 @@ function writeQuickActionElement(name, href, icon, userName){
         </a>
     `)
 }
+
+setInterval(() => {
+    if(currentURL != location.href){
+        currentURL = location.href
+        main()
+    }
+}, 100)
+
 async function main(){
     await waitTargetElement()
     let actions = await fetch(chrome.runtime.getURL("./actions.json")).then(e => e.json())
