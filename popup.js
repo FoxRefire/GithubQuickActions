@@ -26,16 +26,16 @@ function removeItem(id){
 
 function upItem(index){
     if(currentItems[index - 1]){
-        let move = currentItems.splice(index, 1)
-        currentItems.splice(index - 1, 0, move)[0]
+        let move = currentItems.splice(index, 1)[0]
+        currentItems.splice(index - 1, 0, move)
         writeTable()
     }
 }
 
 function downItem(index){
     if(currentItems[index + 1]){
-        let move = currentItems.splice(index, 1)
-        currentItems.splice(index + 1, 0, move)[0]
+        let move = currentItems.splice(index, 1)[0]
+        currentItems.splice(index + 1, 0, move)
         writeTable()
     }
 }
