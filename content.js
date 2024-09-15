@@ -1,4 +1,4 @@
-let currentURL = location.href
+let currentURL
 function waitTargetElement(){
     return new Promise(resolve => {
         let interval  = setInterval(() => {
@@ -17,14 +17,14 @@ function getUserName(){
 function writeQuickActionElement(name, href, icon, userName){
     let hrefReplaced = href.replace("$NAME", userName)
     document.querySelector(".AppHeader-actions").insertAdjacentHTML("beforeend",`
-        <a title="${name}" href="${hrefReplaced}" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted">
+        <a title="${name}" href="${hrefReplaced}" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted Button--custom">
             ${icon}
         </a>
     `)
 }
 
 setInterval(() => {
-    if(currentURL != location.href){
+    if(currentURL != location.href && !document.querySelector(".Button--custom")){
         currentURL = location.href
         main()
     }
@@ -41,4 +41,3 @@ async function main(){
         writeQuickActionElement(itemDict.name, itemDict.href, itemDict.icon, userName)
     })
 }
-main()
