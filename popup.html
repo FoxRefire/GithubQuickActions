@@ -1,12 +1,33 @@
-<html>
-    <body>
-        <div id="items"></div>
-        <hr/>
-        <table>
-            <tbody id="currentItems">
-            </tbody>
-        </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Quick Actions</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>GitHub Quick Actions</h1>
+            <p class="subtitle">Customize your GitHub navigation</p>
+        </header>
+        
+        <section class="section">
+            <h2>Available Actions</h2>
+            <div id="items" class="checkbox-grid"></div>
+        </section>
+        
+        <hr class="divider">
+        
+        <section class="section">
+            <h2>Current Order</h2>
+            <div class="drag-container">
+                <div id="currentItems" class="drag-list"></div>
+            </div>
+        </section>
+    </div>
 
-        <script type="module" src="popup.js"></script>
-    </body>
+    <script type="module" src="popup.js"></script>
+</body>
 </html>
