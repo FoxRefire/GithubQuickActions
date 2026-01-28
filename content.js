@@ -2,7 +2,7 @@ let currentURL
 function waitTargetElement(){
     return new Promise(resolve => {
         let interval  = setInterval(() => {
-            if(document.querySelector(".AppHeader-actions")){
+            if(document.querySelector(`div[data-testid=top-bar-actions]`)){
                 resolve()
                 clearInterval(interval)
             }
@@ -16,7 +16,7 @@ function getUserName(){
 
 function writeQuickActionElement(name, href, icon, userName){
     let hrefReplaced = href.replace("$NAME", userName)
-    document.querySelector(".AppHeader-actions").insertAdjacentHTML("beforeend",`
+    document.querySelector(`div[data-testid=top-bar-actions]`).insertAdjacentHTML("beforeend",`
         <a title="${name}" href="${hrefReplaced}" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted Button--custom">
             ${icon}
         </a>
